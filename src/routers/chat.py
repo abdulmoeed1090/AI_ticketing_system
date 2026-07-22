@@ -10,15 +10,13 @@ router = APIRouter(
 )
 
 
+from pydantic import BaseModel
+
 class ChatRequest(BaseModel):
     message: str
 
-
 @router.post("/")
-def chat(
-    request: ChatRequest,
-    current_user=Depends(get_current_user)
-):
+def chat(request: ChatRequest,current_user=Depends(get_current_user)):
     return s.chat(
     current_user["id"],
     request.message
@@ -32,3 +30,16 @@ def get_chat_history(
     return s.get_chat_history(
     current_user["id"]
 )
+    
+    
+
+
+
+
+
+
+
+
+
+
+

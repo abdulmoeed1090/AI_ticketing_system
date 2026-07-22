@@ -1,6 +1,5 @@
 from fastapi import APIRouter, Response, Request
 from pydantic import BaseModel
-
 from src.services import auth_s as s
 from src.security.cookie import set_auth_cookies, clear_auth_cookies
 from src.security.deps import get_current_user
